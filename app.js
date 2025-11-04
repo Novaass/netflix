@@ -812,7 +812,7 @@ const partnersDataFull = {
       {
         id: 13,
         nom: "Madhouse Studios",
-        logo: "MAD"
+        logo: "MAD",
         type: "Animation",
         depuis: 2020,
         statut: "Actif",
