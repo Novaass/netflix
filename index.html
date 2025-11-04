@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet Netflix - Employés</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <svg class="logo-icon" viewBox="0 0 111 30" width="92" height="25">
+                        <path d="M105.06233,14.2806261 L110.999156,30 L110.999156,30 L105.001453,30 L101.442274,19.2806261 L97.8814588,30 L97.8814588,30 L92.8811542,30 L98.9529059,14.2806261 L93.5435563,0 L93.5435563,0 L99.5438806,0 L102.533508,9.63514198 L105.523135,0 L105.523135,0 L111.00159,0 L105.06233,14.2806261 Z M90.4686475,-0.000191174547 L90.4686475,30 L90.4686475,30 L85.8418511,30 L85.8418511,4.64991694 L79.3187388,30 L79.3187388,30 L75.1111145,30 L68.5880022,4.64991694 L68.5880022,30 L68.5880022,30 L63.9612057,30 L63.9612057,-0.000191174547 L63.9612057,-0.000191174547 L71.6528145,-0.000191174547 L77.8673691,23.2806261 L84.0819237,-0.000191174547 L90.4686475,-0.000191174547 Z M53.6584849,10.6408972 L53.6584849,30 L53.6584849,30 L49.6037907,30 L49.6037907,10.6408972 L40.7302254,10.6408972 L40.7302254,10.6408972 L40.7302254,0 L62.5334796,0 L62.5334796,0 L62.5334796,10.6408972 L53.6584849,10.6408972 Z M37.5568564,0 L37.5568564,30 L37.5568564,30 L28.6832911,30 L28.6832911,18.3528189 L20.3413991,18.3528189 L20.3413991,30 L20.3413991,30 L11.4678338,30 L11.4678338,0 L11.4678338,0 L20.3413991,0 L20.3413991,9.22639053 L28.6832911,9.22639053 L28.6832911,0 L37.5568564,0 Z M0,0 L8.8735653,0 L8.8735653,21.3159296 L19.4582031,0 L19.4582031,0 L28.3317684,0 L28.3317684,30 L28.3317684,30 L19.4582031,30 L19.4582031,8.68407041 L8.8735653,30 L8.8735653,30 L0,30 L0,0 Z" fill="#E50914"></path>
+                    </svg>
+                    <span class="logo-text">DASHBOARD</span>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active" data-page="home">Accueil</a>
+                    <a href="#" class="nav-link" data-page="my-tasks">Mes Tâches</a>
+                    <a href="#" class="nav-link" data-page="partners">Partenaires</a>
+                    <a href="#" class="nav-link" data-page="processes">Processus Métier</a>
+                    <a href="#" class="nav-link" data-page="my-requests">Mes Demandes</a>
+                    <a href="#" class="nav-link" data-page="reports">Rapports</a>
+                    <a href="#" class="nav-link" data-page="profile">Mon Profil</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- HOME PAGE -->
+        <section id="home" class="page active">
+            <div class="hero-section">
+                <div class="hero-background-logo">
+                    <svg viewBox="0 0 111 30" class="hero-logo-svg">
+                        <path d="M105.06233,14.2806261 L110.999156,30 L110.999156,30 L105.001453,30 L101.442274,19.2806261 L97.8814588,30 L97.8814588,30 L92.8811542,30 L98.9529059,14.2806261 L93.5435563,0 L93.5435563,0 L99.5438806,0 L102.533508,9.63514198 L105.523135,0 L105.523135,0 L111.00159,0 L105.06233,14.2806261 Z M90.4686475,-0.000191174547 L90.4686475,30 L90.4686475,30 L85.8418511,30 L85.8418511,4.64991694 L79.3187388,30 L79.3187388,30 L75.1111145,30 L68.5880022,4.64991694 L68.5880022,30 L68.5880022,30 L63.9612057,30 L63.9612057,-0.000191174547 L63.9612057,-0.000191174547 L71.6528145,-0.000191174547 L77.8673691,23.2806261 L84.0819237,-0.000191174547 L90.4686475,-0.000191174547 Z M53.6584849,10.6408972 L53.6584849,30 L53.6584849,30 L49.6037907,30 L49.6037907,10.6408972 L40.7302254,10.6408972 L40.7302254,10.6408972 L40.7302254,0 L62.5334796,0 L62.5334796,0 L62.5334796,10.6408972 L53.6584849,10.6408972 Z M37.5568564,0 L37.5568564,30 L37.5568564,30 L28.6832911,30 L28.6832911,18.3528189 L20.3413991,18.3528189 L20.3413991,30 L20.3413991,30 L11.4678338,30 L11.4678338,0 L11.4678338,0 L20.3413991,0 L20.3413991,9.22639053 L28.6832911,9.22639053 L28.6832911,0 L37.5568564,0 Z M0,0 L8.8735653,0 L8.8735653,21.3159296 L19.4582031,0 L19.4582031,0 L28.3317684,0 L28.3317684,30 L28.3317684,30 L19.4582031,30 L19.4582031,8.68407041 L8.8735653,30 L8.8735653,30 L0,30 L0,0 Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <div class="container">
+                <!-- Tabs Navigation -->
+                <div class="home-tabs">
+                    <button class="tab-btn active" data-tab="overview">Vue d'ensemble</button>
+                    <button class="tab-btn" data-tab="tasks">Mes Tâches</button>
+                    <button class="tab-btn" data-tab="budgets">Budget Département</button>
+                    <button class="tab-btn" data-tab="productions">Projets</button>
+                </div>
+
+                <!-- TAB: OVERVIEW -->
+                <div class="tab-content active" id="tab-overview">
+                    <div class="hero-content">
+                        <h1 class="hero-title">NETFLIX</h1>
+                        <p class="hero-subtitle">Excellence opérationnelle · Gestion professionnelle · Innovation continue</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+
+
+
+
+                </div>
+
+                <!-- TAB: TASKS -->
+                <div class="tab-content" id="tab-tasks">
+                <div class="tasks-section">
+                    <h2 class="section-title">Mes tâches en cours</h2>
+                    <p class="section-description">Tâches assignées à votre département</p>
+                    <div class="task-filters">
+                        <button class="filter-btn active" data-filter="all">Toutes</button>
+                        <button class="filter-btn" data-filter="urgent">Urgent</button>
+                        <button class="filter-btn" data-filter="week">Cette semaine</button>
+                        <button class="filter-btn" data-filter="late">En retard</button>
+                    </div>
+                    <div class="tasks-grid" id="tasks-grid"></div>
+                </div>
+                </div>
+
+                <!-- TAB: BUDGETS -->
+                <div class="tab-content" id="tab-budgets">
+                <h2 class="section-title">Budget Département</h2>
+                <p class="section-description">Budget utilisé: 1.8M€ / 2.5M€ (72%) · Tâches actives: 47</p>
+                
+                <div class="charts-row">
+                    <div class="chart-card">
+                        <h3>Répartition du budget annuel</h3>
+                        <canvas id="budgetPieChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Budget par trimestre 2025</h3>
+                        <canvas id="budgetBarChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="budgets-grid" id="budgets-grid"></div>
+                </div>
+
+                <!-- TAB: PRODUCTIONS -->
+                <div class="tab-content" id="tab-productions">
+                <h2 class="section-title">Projets du département</h2>
+                <p class="section-description">Projets clés en cours de production</p>
+                <div class="productions-grid" id="productions-grid"></div>
+                </div>
+
+
+
+                <!-- PROCESSUS - Visible in all tabs -->
+                <div class="processes-section" style="margin-top: 60px;">
+                    <h2 class="section-title">Processus métier</h2>
+                    <p class="section-description">Sélectionnez un parcours pour commencer</p>
+                    <div class="process-launch-grid">
+                        <div class="launch-card" id="launch-process-1">
+                            <div class="launch-card-inner">
+                                <div class="launch-icon launch-icon-service">SERVICE</div>
+                                <h3>Développement de Service</h3>
+                                <p>Lancer un nouveau service Netflix: de la détection du besoin marché à la mise en production</p>
+                                <div class="launch-meta">
+                                    <span class="meta-item">10 étapes</span>
+                                    <span class="meta-separator">·</span>
+                                    <span class="meta-item">Multi-départements</span>
+                                </div>
+                            </div>
+                            <div class="launch-footer">
+                                <span class="launch-cta">Démarrer le processus</span>
+                            </div>
+                        </div>
+                        <div class="launch-card" id="launch-process-2">
+                            <div class="launch-card-inner">
+                                <div class="launch-icon launch-icon-request">SUPPORT</div>
+                                <h3>Gestion Demandes Client</h3>
+                                <p>Traiter et résoudre les demandes clients: analyse, classification et résolution</p>
+                                <div class="launch-meta">
+                                    <span class="meta-item">Flux dynamique</span>
+                                    <span class="meta-separator">·</span>
+                                    <span class="meta-item">Multi-niveaux</span>
+                                </div>
+                            </div>
+                            <div class="launch-footer">
+                                <span class="launch-cta">Démarrer le processus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="quick-access" style="margin-top: 50px;">
+                    <h3 class="section-title">Raccourcis rapides</h3>
+                    <div class="cards-grid">
+                        <div class="access-card" data-page="processes">
+                            <h4>Lancer un processus</h4>
+                            <p>Démarrer un workflow métier</p>
+                        </div>
+                        <div class="access-card" data-page="my-requests">
+                            <h4>Faire une demande</h4>
+                            <p>Soumettre une nouvelle demande</p>
+                        </div>
+                        <div class="access-card" data-page="reports">
+                            <h4>Voir les rapports</h4>
+                            <p>Consulter les rapports d'activité</p>
+                        </div>
+                        <div class="access-card" data-page="partners">
+                            <h4>Contacter un partenaire</h4>
+                            <p>Accéder aux contacts partenaires</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS 1: SERVICE DEVELOPMENT JOURNEY -->
+        <section id="process1" class="page">
+            <div class="container">
+                <div class="journey-header">
+                    <button class="btn-back" id="process1-back">← Retour à l'accueil</button>
+                    <h2 class="page-title">Processus de Développement de Service</h2>
+                    <div class="progress-indicator" id="process1-progress"></div>
+                </div>
+                
+                <div class="journey-breadcrumb" id="process1-breadcrumb"></div>
+                
+                <div class="journey-content" id="process1-content"></div>
+            </div>
+        </section>
+
+        <!-- PROCESS 2: CLIENT REQUEST JOURNEY -->
+        <section id="process2" class="page">
+            <div class="container">
+                <div class="journey-header">
+                    <button class="btn-back" id="process2-back">← Retour à l'accueil</button>
+                    <h2 class="page-title">Gestion des Demandes Client</h2>
+                    <div class="progress-indicator" id="process2-progress"></div>
+                </div>
+                
+                <div class="journey-breadcrumb" id="process2-breadcrumb"></div>
+                
+                <div class="journey-content" id="process2-content"></div>
+            </div>
+        </section>
+
+        <!-- MES TACHES PAGE -->
+        <section id="my-tasks" class="page">
+            <div class="container">
+                <h2 class="page-title">Mes Tâches</h2>
+                <p class="page-subtitle">Toutes les tâches qui vous sont assignées</p>
+                <div class="task-filters" style="margin-bottom: 30px;">
+                    <button class="filter-btn active" data-filter="all">Toutes</button>
+                    <button class="filter-btn" data-filter="todo">À faire</button>
+                    <button class="filter-btn" data-filter="progress">En cours</button>
+                    <button class="filter-btn" data-filter="review">En révision</button>
+                    <button class="filter-btn" data-filter="done">Terminé</button>
+                </div>
+                <div id="all-tasks-container" class="tasks-table-container"></div>
+            </div>
+        </section>
+
+        <!-- PARTNERS PAGE -->
+        <section id="partners" class="page">
+            <div class="container">
+                <h2 class="page-title">Gestion des Partenaires</h2>
+                <p class="page-subtitle">Réseau mondial de partenaires stratégiques</p>
+                <div class="partners-categories" id="partners-page-categories"></div>
+            </div>
+        </section>
+
+        <!-- PROCESSES PAGE -->
+        <section id="processes" class="page">
+            <div class="container">
+                <h2 class="page-title">Processus Métier</h2>
+                <p class="page-subtitle">Workflows et processus opérationnels</p>
+                <div class="process-launch-grid">
+                    <div class="launch-card" onclick="startProcess('processus_1')">
+                        <div class="launch-card-inner">
+                            <div class="launch-icon launch-icon-service">SERVICE</div>
+                            <h3>Développement de Service</h3>
+                            <p>Lancer un nouveau service Netflix: de la détection du besoin marché à la mise en production</p>
+                        </div>
+                        <div class="launch-footer">
+                            <span class="launch-cta">Démarrer le processus</span>
+                        </div>
+                    </div>
+                    <div class="launch-card" onclick="startProcess('processus_2')">
+                        <div class="launch-card-inner">
+                            <div class="launch-icon launch-icon-request">SUPPORT</div>
+                            <h3>Gestion Demandes Client</h3>
+                            <p>Traiter et résoudre les demandes clients: analyse, classification et résolution</p>
+                        </div>
+                        <div class="launch-footer">
+                            <span class="launch-cta">Démarrer le processus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MES DEMANDES PAGE -->
+        <section id="my-requests" class="page">
+            <div class="container">
+                <h2 class="page-title">Mes Demandes</h2>
+                <p class="page-subtitle">Historique de vos demandes soumises</p>
+                
+                <div class="action-buttons" style="margin-bottom: 30px;">
+                    <button class="btn-primary" onclick="navigateToPage('processes')">Nouvelle demande</button>
+                </div>
+
+                <div class="support-list-section">
+                    <div class="support-header">
+                        <h3 class="section-title">Demandes traitées</h3>
+                        <input type="text" id="search-requests" placeholder="Rechercher..." class="search-input">
+                    </div>
+                    <div class="requests-table" id="requests-table"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MON PROFIL PAGE -->
+        <section id="profile" class="page">
+            <div class="container">
+                <h2 class="page-title">Mon Profil</h2>
+                <p class="page-subtitle">Informations personnelles et paramètres</p>
+
+                <div class="profile-grid">
+                    <div class="profile-card">
+                        <h3>Informations personnelles</h3>
+                        <div class="profile-info">
+                            <div class="profile-row">
+                                <span class="profile-label">Nom:</span>
+                                <span class="profile-value">Sophie Martin</span>
+                            </div>
+                            <div class="profile-row">
+                                <span class="profile-label">Département:</span>
+                                <span class="profile-value">Production</span>
+                            </div>
+                            <div class="profile-row">
+                                <span class="profile-label">Rôle:</span>
+                                <span class="profile-value">Chef de Projet Production</span>
+                            </div>
+                            <div class="profile-row">
+                                <span class="profile-label">Responsable:</span>
+                                <span class="profile-value">Philippe Rousseau</span>
+                            </div>
+                            <div class="profile-row">
+                                <span class="profile-label">Email:</span>
+                                <span class="profile-value">sophie.martin@netflix.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <h3>Statistiques</h3>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">47</div>
+                                <div class="stat-label">Tâches actives</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">156</div>
+                                <div class="stat-label">Tâches terminées</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">94%</div>
+                                <div class="stat-label">Taux de complétion</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-card" style="margin-top: 30px;">
+                    <h3>Paramètres de notification</h3>
+                    <div class="settings-list">
+                        <div class="setting-item">
+                            <label>Notifications par email</label>
+                            <input type="checkbox" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label>Alertes de deadline</label>
+                            <input type="checkbox" checked>
+                        </div>
+                        <div class="setting-item">
+                            <label>Mises à jour de projet</label>
+                            <input type="checkbox" checked>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REPORTS PAGE -->
+        <section id="reports" class="page">
+            <div class="container">
+                <h2 class="page-title">Analyses &amp; Rapports</h2>
+                <p class="page-subtitle">Métriques de performance et informations</p>
+
+                <div class="reports-grid">
+                    <div class="report-card">
+                        <h4>Taux de complétion des processus</h4>
+                        <div class="metric-value">94.7%</div>
+                        <div class="metric-change positive">+2.3% par rapport au mois dernier</div>
+                    </div>
+                    <div class="report-card">
+                        <h4>Temps de résolution moyen</h4>
+                        <div class="metric-value">4.2 h</div>
+                        <div class="metric-change positive">-0.8 h d'amélioration</div>
+                    </div>
+                    <div class="report-card">
+                        <h4>Satisfaction client</h4>
+                        <div class="metric-value">98.5%</div>
+                        <div class="metric-change positive">+1.2% d'augmentation</div>
+                    </div>
+                    <div class="report-card">
+                        <h4>Lancements de services actifs</h4>
+                        <div class="metric-value">8</div>
+                        <div class="metric-change neutral">Actuellement en cours</div>
+                    </div>
+                </div>
+
+                <div class="report-section">
+                    <h3 class="section-title">Répartition des demandes par type</h3>
+                    <div class="chart-container">
+                        <div class="bar-chart">
+                            <div class="bar" style="height: 70%">
+                                <div class="bar-label">Facturation<br>45%</div>
+                            </div>
+                            <div class="bar" style="height: 50%">
+                                <div class="bar-label">Technique<br>30%</div>
+                            </div>
+                            <div class="bar" style="height: 35%">
+                                <div class="bar-label">Autre<br>15%</div>
+                            </div>
+                            <div class="bar" style="height: 25%">
+                                <div class="bar-label">Complexe<br>10%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-section">
+                    <h3 class="section-title">Progression des projets</h3>
+                    <div class="timeline-chart">
+                        <div class="timeline-item">
+                            <div class="timeline-label">Bridgerton S4</div>
+                            <div class="timeline-bar" style="width: 12%">12% - Pre-production</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-label">Avatar ATLA</div>
+                            <div class="timeline-bar" style="width: 78%">78% - Post-production</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-label">Wednesday S2</div>
+                            <div class="timeline-bar" style="width: 45%">45% - Filming</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-label">AI Analytics</div>
+                            <div class="timeline-bar" style="width: 60%">60% - Développement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Modal for Process Step Details -->
+    <div id="step-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3 id="modal-title"></h3>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Partner Details -->
+    <div id="partner-modal" class="modal">
+        <div class="modal-content partner-modal-content">
+            <span class="modal-close" id="partner-modal-close">&times;</span>
+            <div id="partner-modal-body"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
